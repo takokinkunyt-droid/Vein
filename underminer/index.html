@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNDERMINER Chapter 2: Descend</title>
+<meta name="description" content="地上へ戻る道は、電気の通っていない扉の向こうにある。UNDERMINER Chapter 2「Descend」特設ページ。">
+<meta property="og:title" content="UNDERMINER Chapter 2: Descend">
+<meta property="og:description" content="地上へ戻る道は、電気の通っていない扉の向こうにある。">
+<meta property="og:image" content="/images/lift.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/images/vein-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #08090A;
+    --panel: #101210;
+    --panel-2: #0C0E0C;
+    --line: #23261F;
+    --text: #E6E8E3;
+    --sub: #A8AFA5;
+    --muted: #7E857B;
+    --amber: #F0B93B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.7;
+  }
+  a { color: var(--amber); }
+  a:hover { color: #FFD277; }
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+  .eyebrow {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--amber);
+  }
+
+  header {
+    padding: 18px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #1E211D;
+    position: sticky;
+    top: 0;
+    background: rgba(8, 9, 10, 0.96);
+    z-index: 20;
+  }
+  .logo-row { display: flex; align-items: baseline; gap: 14px; }
+  .logo-row .title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .logo-row .sub { font-size: 13px; color: #8A9187; letter-spacing: 0.1em; }
+  nav { display: flex; gap: 30px; align-items: center; font-size: 14px; font-weight: 700; }
+  nav a { text-decoration: none; color: var(--text); }
+  nav a.cta { color: var(--bg); background: var(--amber); padding: 11px 20px; border-radius: 3px; }
+  nav a.cta:hover { background: #FFD277; color: var(--bg); }
+
+  /* ヒーロー */
+  .hero { position: relative; }
+  .hero img { width: 100%; height: 620px; object-fit: cover; display: block; opacity: 0.62; }
+  .hero .veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(8,9,10,0.95) 0%, rgba(8,9,10,0.55) 55%, rgba(8,9,10,0.2) 100%);
+  }
+  .hero .copy {
+    position: absolute;
+    left: 56px; top: 50%;
+    transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 22px;
+    max-width: 620px;
+  }
+  .badge { display: inline-flex; align-items: center; gap: 10px; }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); display: block; }
+  .badge span { font-size: 13px; letter-spacing: 0.18em; color: var(--amber); font-weight: 700; }
+  .hero h1 {
+    margin: 0;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 88px;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    color: #F2F4EF;
+  }
+  .hero p { margin: 0; font-size: 19px; line-height: 1.95; color: #C3C9C0; }
+
+  section.band { padding: 104px 56px; border-bottom: 1px solid #1E211D; }
+  h2 { margin: 0; font-size: 38px; font-weight: 900; }
+
+  /* ストーリー */
+  .story .wrap { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 72px; align-items: start; }
+  .story h2 { font-size: 32px; line-height: 1.5; }
+  .story p { margin: 0; font-size: 18px; line-height: 2.1; color: #C3C9C0; }
+  .story .col { display: flex; flex-direction: column; gap: 26px; }
+
+  /* 新要素 */
+  .features .wrap { display: flex; flex-direction: column; gap: 52px; }
+  .card-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .card-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .card .kind { font-size: 13px; color: var(--amber); font-weight: 700; letter-spacing: 0.08em; }
+  .card h3 { margin: 0; font-size: 22px; font-weight: 900; }
+  .card p { margin: 0; font-size: 15px; line-height: 1.95; color: var(--sub); }
+
+  /* ギャラリー */
+  .gallery .wrap { display: flex; flex-direction: column; gap: 44px; }
+  .gal-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+  .gal-note { font-size: 14px; color: var(--muted); }
+  .gal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .zoom {
+    padding: 0; border: 0; background: none;
+    cursor: zoom-in; display: block; width: 100%;
+    border-radius: 4px; overflow: hidden;
+  }
+  .zoom img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; transition: transform .35s ease; }
+  .zoom:hover img { transform: scale(1.03); }
+  figcaption { font-size: 14px; color: #8A9187; }
+
+  /* Vein */
+  .vein { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 1px solid #1E211D; }
+  .vein .zoom { height: 100%; min-height: 520px; }
+  .vein .zoom img { width: 100%; height: 100%; min-height: 520px; aspect-ratio: auto; object-fit: cover; }
+  .vein .text {
+    padding: 88px 64px;
+    display: flex; flex-direction: column; gap: 26px; justify-content: center;
+    background: var(--panel-2);
+  }
+  .vein h2 { line-height: 1.4; }
+  .vein p { margin: 0; font-size: 17px; line-height: 2.05; color: var(--sub); }
+
+  /* 公開情報 */
+  .release { padding: 96px 56px; background: var(--panel); }
+  .release .wrap { display: flex; justify-content: space-between; align-items: center; gap: 56px; flex-wrap: wrap; }
+  .release h2 { font-size: 34px; margin-bottom: 14px; }
+  .release p { margin: 0; font-size: 16px; color: var(--sub); line-height: 1.9; }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-amber {
+    text-decoration: none; background: var(--amber); color: var(--bg);
+    font-weight: 700; font-size: 16px; padding: 17px 28px; border-radius: 3px;
+  }
+  .btn-amber:hover { background: #FFD277; color: var(--bg); }
+  .btn-outline {
+    text-decoration: none; color: var(--text);
+    font-weight: 700; font-size: 16px; padding: 15px 26px;
+    border-radius: 3px; border: 2px solid #3A3F37;
+  }
+  .btn-outline:hover { color: var(--text); border-color: #5A6154; }
+
+  /* Veinサイトへ */
+  .to-vein { padding: 88px 56px; display: flex; justify-content: center; border-top: 1px solid #1E211D; }
+  .to-vein a {
+    text-decoration: none;
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+    padding: 44px 72px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--panel-2);
+  }
+  .to-vein a:hover { border-color: #3A4034; }
+  .to-vein img { width: 240px; height: auto; display: block; }
+  .to-vein span { font-size: 15px; color: var(--sub); font-weight: 700; }
+
+  footer { padding: 38px 56px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 32px; font-size: 13px; color: #6E756B; flex-wrap: wrap; }
+
+  /* 拡大表示 */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(4, 5, 4, 0.95);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 20px; padding: 56px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 78%; object-fit: contain; display: block; border-radius: 4px; }
+  .lightbox .cap { font-size: 15px; color: #C3C9C0; text-align: center; max-width: 760px; line-height: 1.8; }
+  .lightbox .close {
+    position: absolute; right: 32px; top: 28px;
+    background: none; border: 1px solid #3A3F37; color: var(--text);
+    font-size: 15px; font-weight: 700; padding: 12px 22px;
+    border-radius: 3px; cursor: pointer; font-family: inherit;
+  }
+  .lightbox .close:hover { border-color: #5A6154; }
+
+  @media (max-width: 960px) {
+    header, section.band, .release, .to-vein, footer { padding-left: 24px; padding-right: 24px; }
+    nav { gap: 16px; font-size: 13px; }
+    .hero img { height: 460px; }
+    .hero .copy { left: 24px; right: 24px; }
+    .hero h1 { font-size: 52px; }
+    .story .wrap, .card-3, .card-2, .gal-grid, .vein { grid-template-columns: 1fr; }
+    .story .wrap { gap: 32px; }
+    .vein .zoom, .vein .zoom img { min-height: 320px; }
+    .vein .text { padding: 56px 24px; }
+    .to-vein a { padding: 32px 36px; }
+    .to-vein img { width: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-row">
+    <a href="#top" class="title">UNDERMINER</a>
+    <span class="sub">CHAPTER 2</span>
+  </div>
+  <nav>
+    <a href="#story">ストーリー</a>
+    <a href="#features">新要素</a>
+    <a href="#gallery">スクリーンショット</a>
+    <a href="#vein">Vein</a>
+    <a href="https://www.roblox.com/ja/games/117262738667984/UNDERMINER" class="cta">Robloxで遊ぶ</a>
+  </nav>
+</header>
+
+<section id="top" class="hero">
+  <img src="/images/lift.jpg" alt="緑の光に照らされた「地上行き SURFACE LIFT」と書かれたエレベーターの扉">
+  <div class="veil"></div>
+  <div class="copy">
+    <div class="badge"><span class="dot"></span><span>現在テスト中</span></div>
+    <h1>DESCEND</h1>
+    <p>地上へ戻る道は、電気の通っていない扉の向こうにある。<br>壊れた道具を抱えて、誰もいない採掘場を歩く。</p>
+  </div>
+</section>
+
+<section id="story" class="band story">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">STORY</div>
+      <h2>落ちた先で、<br>最初に出会ったのは</h2>
+    </div>
+    <div class="col">
+      <p>エレベーターごと落下した主人公が目を覚ましたのは、第3採掘区画の奥だった。手元のマグネーターは原形を留めておらず、足はまだ言うことを聞かない。</p>
+      <p>薄暗い通路を進んだ先で出会ったのは、思考することのできる一体の機械の採掘員だった。彼は名をジェームスと名乗り、壊れた道具を直すと言う。</p>
+      <p>地上へ出る手段は、通電していない扉の先にある一基のエレベーターだけ。電気を取り戻すため、主人公はさらに奥へ向かうことになる。</p>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="band features">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">NEW IN CHAPTER 2</div>
+      <h2>新しい道具と、新しい脅威</h2>
+    </div>
+    <div class="card-3">
+      <div class="card">
+        <div class="kind">WEAPON</div>
+        <h3>マグショット</h3>
+        <p>電磁集約弾を撃ち出す新装備。撃った物は物理法則のままに吹き飛ぶ。連射すればダウンメーターが溜まり、限界を超えると冷えるまで撃てない。</p>
+      </div>
+      <div class="card">
+        <div class="kind">WEAPON</div>
+        <h3>ピッケル</h3>
+        <p>ロッカーの奥に仕舞われていた鉄製の採掘道具。行く手を塞ぐ板を叩き割り、いざという時には武器にもなる。</p>
+      </div>
+      <div class="card">
+        <div class="kind">ENEMY</div>
+        <h3>機械の採掘員</h3>
+        <p>ブラウン管の頭にひとつ目を映し、こちらを見つめ続ける。右腕にドリル、左腕にツルハシ。思考しない個体は、ただ振り下ろすことしか知らない。</p>
+      </div>
+    </div>
+    <div class="card-2">
+      <div class="card">
+        <div class="kind">SYSTEM</div>
+        <h3>HP と ヘルメット</h3>
+        <p>採掘用ヘルメットを被ると、画面左下に体調が表示される。ヘルメットが衝撃を肩代わりしてくれるが、削られきれば次に傷つくのは自分自身だ。前面のライトは暗所で頼りになる。</p>
+      </div>
+      <div class="card">
+        <div class="kind">SYSTEM</div>
+        <h3>インベントリと仕掛け</h3>
+        <p>拾った物は手元で回して眺められる。書き込みは、裏返してはじめて見えることもある。鉄格子の向こうのボタンは、弾でしか押せない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="band gallery">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <div class="eyebrow">SCREENSHOTS</div>
+        <h2>第3採掘区画</h2>
+      </div>
+      <div class="gal-note">開発中の画面です。製品版とは異なる場合があります。</div>
+    </div>
+    <div class="gal-grid">
+      <figure>
+        <button type="button" class="zoom" data-src="/images/miner.jpg" data-cap="通路の先で、こちらを見ている" aria-label="拡大して表示: 通路の先で、こちらを見ている">
+          <img src="/images/miner.jpg" alt="暗い通路の突き当たりに立ち、こちらを向いている機械の採掘員のシルエット">
+        </button>
+        <figcaption>通路の先で、こちらを見ている</figcaption>
+      </figure>
+      <figure>
+        <button type="button" class="zoom" data-src="/images/powerroom.jpg" data-cap="第2電源室 ― 高電圧注意" aria-label="拡大して表示: 第2電源室">
+          <img src="/images/powerroom.jpg" alt="壁に「第2電源室 高電圧注意」と書かれた通路。シャッターの前に木箱が積まれている">
+        </button>
+        <figcaption>第2電源室 &mdash; 高電圧注意</figcaption>
+      </figure>
+      <figure>
+        <button type="button" class="zoom" data-src="/images/rails.jpg" data-cap="第3運搬線 ― さらに深い方角へ" aria-label="拡大して表示: 第3運搬線">
+          <img src="/images/rails.jpg" alt="「第3運搬線 深層区」と書かれた標識の下に伸びる、トロッコのレール">
+        </button>
+        <figcaption>第3運搬線 &mdash; さらに深い方角へ</figcaption>
+      </figure>
+      <figure>
+        <button type="button" class="zoom" data-src="/images/sign.jpg" data-cap="総務課からのお知らせ" aria-label="拡大して表示: 総務課からのお知らせ">
+          <img src="/images/sign.jpg" alt="岩肌に掲示された「健康診断のお知らせ ― 定期診断は不要です 総務課」という貼り紙">
+        </button>
+        <figcaption>総務課からのお知らせ</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="vein" class="vein">
+  <button type="button" class="zoom" data-src="/images/vein-board.jpg" data-cap="Vein ― 深慮・邁進・尊重" aria-label="拡大して表示: VEIN社の理念が書かれた掲示板">
+    <img src="/images/vein-board.jpg" alt="コンクリートの壁に掲げられた、VEIN社の理念「深慮 邁進 尊重」と書かれた掲示板">
+  </button>
+  <div class="text">
+    <div class="eyebrow">THE COMPANY</div>
+    <h2>Vein &mdash; 深慮・邁進・尊重</h2>
+    <p>この採掘場を運営していた会社。通路の壁にも、休憩室にも、その三文字が掲げられている。</p>
+    <p>誰もいなくなった今も、掲示板の電源だけは落ちていない。</p>
+  </div>
+</section>
+
+<section class="release">
+  <div class="wrap">
+    <div>
+      <h2>Chapter 1 は公開中です。</h2>
+      <p>Chapter 2「Descend」は現在テスト段階です。公開日が決まり次第、Robloxグループでお知らせします。</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn-amber" href="https://www.roblox.com/ja/games/117262738667984/UNDERMINER">ゲームページ</a>
+      <a class="btn-outline" href="https://www.roblox.com/share/g/517383370">Robloxグループ</a>
+    </div>
+  </div>
+</section>
+
+<section class="to-vein">
+  <a href="/">
+    <img src="/images/vein-logo.png" alt="Studio Vein">
+    <span>制作チーム Vein のサイトへ</span>
+  </a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>UNDERMINER &mdash; developed by Studio Vein</div>
+    <div>@atiyaking122 / @ichigo14315</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="拡大表示">
+  <button type="button" class="close" id="lightbox-close">閉じる</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="cap" id="lightbox-cap"></div>
+</div>
+
+<script>
+  (function () {
+    var box = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    var cap = document.getElementById('lightbox-cap');
+    var closeBtn = document.getElementById('lightbox-close');
+    var lastFocused = null;
+
+    function open(src, caption, alt) {
+      lastFocused = document.activeElement;
+      img.src = src;
+      img.alt = alt || '';
+      cap.textContent = caption || '';
+      box.classList.add('open');
+      closeBtn.focus();
+    }
+
+    function close() {
+      box.classList.remove('open');
+      img.src = '';
+      if (lastFocused) { lastFocused.focus(); }
+    }
+
+    var buttons = document.querySelectorAll('.zoom');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        var inner = this.querySelector('img');
+        open(this.getAttribute('data-src'), this.getAttribute('data-cap'), inner ? inner.alt : '');
+      });
+    }
+
+    closeBtn.addEventListener('click', close);
+
+    // 背景をクリックしても閉じる
+    box.addEventListener('click', function (e) {
+      if (e.target === box) { close(); }
+    });
+
+    // Escキーで閉じる
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && box.classList.contains('open')) { close(); }
+    });
+  })();
+</script>
+
+</body>
+</html>

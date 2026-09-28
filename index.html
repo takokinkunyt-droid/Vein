@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Vein</title>
+<meta name="description" content="Studio Veinは、ふたりで作っているインディーゲーム制作チームです。Robloxを舞台に、暗くて、少しだけ意地の悪いゲームを作っています。">
+<meta property="og:title" content="Studio Vein">
+<meta property="og:description" content="Robloxを舞台に、暗くて、少しだけ意地の悪いゲームを作っています。">
+<meta property="og:image" content="/images/um-cover.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/images/vein-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #F3F4EF;
+    --ink: #141A15;
+    --sub: #3A423C;
+    --green: #0B6E1C;
+    --green-bright: #02A722;
+    --line: #D9DCD2;
+    --panel: #E7E9E1;
+    --dark: #11150F;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.7;
+  }
+  a { color: var(--green); }
+  a:hover { color: #08511A; }
+  .wrap { width: 100%; max-width: 1200px; margin: 0 auto; }
+  .eyebrow {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    color: var(--green);
+  }
+
+  /* ヘッダー */
+  header {
+    padding: 20px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--ground);
+    z-index: 10;
+  }
+  header img { height: 34px; width: auto; display: block; }
+  nav { display: flex; gap: 32px; align-items: center; font-size: 15px; font-weight: 700; }
+  nav a { text-decoration: none; color: var(--ink); }
+  nav a.cta {
+    color: #fff;
+    background: var(--green);
+    padding: 12px 22px;
+    border-radius: 4px;
+  }
+  nav a.cta:hover { background: #08511A; color: #fff; }
+
+  /* ヒーロー */
+  .hero { padding: 104px 64px 88px; }
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+    align-items: center;
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: 60px;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+  .hero p { margin: 0; font-size: 18px; line-height: 1.9; color: var(--sub); max-width: 520px; }
+  .hero-col { display: flex; flex-direction: column; gap: 26px; }
+  .btn-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    text-decoration: none;
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 28px;
+    border-radius: 4px;
+  }
+  .btn:hover { background: #08511A; color: #fff; }
+  .btn-quiet {
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 6px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .hero-art { position: relative; }
+  .hero-art img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; border-radius: 6px; }
+  .hero-tag {
+    position: absolute;
+    left: -24px;
+    bottom: 32px;
+    background: var(--dark);
+    color: var(--ground);
+    padding: 14px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* 作品 */
+  .works { padding: 104px 64px; background: var(--dark); color: #EDEFE8; }
+  .works .wrap { display: flex; flex-direction: column; gap: 44px; }
+  .works-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+  .works h2 { margin: 0; font-size: 44px; font-weight: 900; }
+  .works .eyebrow { color: #6FD27F; }
+  .works-meta { font-size: 15px; color: #A9B1A7; }
+  .works img.shot { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-radius: 6px; }
+  .works-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; }
+  .works-body h3 { margin: 0; font-size: 28px; font-weight: 900; line-height: 1.5; }
+  .works-body p { margin: 0; font-size: 17px; line-height: 2; color: #C9CFC6; }
+  .chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .chapter {
+    border: 1px solid #2E362C;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .chapter .no { font-size: 13px; color: #8F988D; font-weight: 700; }
+  .chapter .name { font-size: 18px; font-weight: 700; }
+  .status-done { font-size: 14px; color: #6FD27F; font-weight: 700; }
+  .status-wip { font-size: 14px; color: #E8C45A; font-weight: 700; }
+  .works-cta { display: flex; flex-direction: column; gap: 10px; justify-content: space-between; }
+  .btn-light {
+    text-decoration: none;
+    background: var(--ground);
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 18px 28px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .btn-outline-dark {
+    text-decoration: none;
+    color: #6FD27F;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px 28px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #2E362C;
+  }
+  .btn-outline-dark:hover { color: #9BE3A8; border-color: #48523F; }
+
+  /* ロードマップ */
+  .roadmap { padding: 104px 64px; }
+  .roadmap .wrap { display: flex; flex-direction: column; gap: 40px; }
+  .roadmap h2 { margin: 0; font-size: 40px; font-weight: 900; }
+  .road-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+  .road-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 160px;
+  }
+  .road-card.future { background: var(--panel); border-style: dashed; border-color: #B9BEB2; }
+  .road-card .num { font-family: "Archivo Black", sans-serif; font-size: 32px; color: var(--green); }
+  .road-card.future .num { color: #8A9187; }
+  .road-card .name { font-size: 16px; font-weight: 700; }
+  .road-card.future .name { color: var(--sub); }
+  .road-card .state { font-size: 13px; color: var(--sub); font-weight: 700; }
+
+  /* チーム */
+  .team { padding: 104px 64px; background: var(--panel); }
+  .team .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
+  .team h2 { margin: 0; font-size: 40px; font-weight: 900; line-height: 1.3; }
+  .team p { margin: 0; font-size: 16px; line-height: 1.9; color: var(--sub); }
+  .member { background: #fff; border-radius: 6px; padding: 32px; display: flex; flex-direction: column; gap: 10px; }
+  .member .role { font-size: 13px; color: var(--green); font-weight: 700; letter-spacing: 0.08em; }
+  .member .handle { font-size: 24px; font-weight: 900; }
+  .member p { font-size: 15px; line-height: 1.8; }
+
+  /* 理念 */
+  .philosophy { padding: 112px 64px; }
+  .philosophy .wrap { display: flex; flex-direction: column; gap: 48px; }
+  .phil-head { display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+  .philosophy h2 { margin: 0; font-size: 40px; font-weight: 900; }
+  .phil-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+  .phil-item { padding: 40px 32px 8px; display: flex; flex-direction: column; gap: 14px; border-left: 1px solid var(--line); }
+  .phil-item:first-child { border-left: 0; padding-left: 0; }
+  .phil-item:last-child { padding-right: 0; }
+  .phil-item .kanji { font-size: 48px; font-weight: 900; }
+  .phil-item .en { font-family: "Archivo Black", sans-serif; font-size: 13px; letter-spacing: 0.2em; color: var(--green); }
+  .phil-item p { margin: 0; font-size: 16px; line-height: 1.9; color: var(--sub); }
+
+  /* 連絡 */
+  .contact { padding: 88px 64px; background: var(--green); color: #fff; }
+  .contact .wrap { display: flex; justify-content: space-between; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .contact h2 { margin: 0 0 12px; font-size: 36px; font-weight: 900; }
+  .contact p { margin: 0; font-size: 16px; color: #E3F1E5; }
+  .contact .btn-white {
+    text-decoration: none;
+    background: #fff;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 28px;
+    border-radius: 4px;
+  }
+  .contact .btn-ghost {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 26px;
+    border-radius: 4px;
+    border: 2px solid #fff;
+  }
+
+  footer { padding: 40px 64px; background: var(--ink); color: #A9B1A7; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 32px; font-size: 13px; flex-wrap: wrap; }
+  footer .whisper { color: #6E776C; }
+
+  /* 画面が狭い時 */
+  @media (max-width: 960px) {
+    header, .hero, .works, .roadmap, .team, .philosophy, .contact, footer { padding-left: 24px; padding-right: 24px; }
+    nav { gap: 18px; font-size: 14px; }
+    .hero .wrap, .works-body, .team .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 40px; }
+    .road-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .phil-grid { grid-template-columns: 1fr; }
+    .phil-item { border-left: 0; padding-left: 0; padding-right: 0; border-top: 1px solid var(--line); }
+    .phil-item:first-child { border-top: 0; }
+    .hero-tag { left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#top" aria-label="Studio Vein トップへ"><img src="/images/vein-logo.png" alt="Studio Vein"></a>
+  <nav>
+    <a href="#works">作品</a>
+    <a href="#roadmap">ロードマップ</a>
+    <a href="#team">チーム</a>
+    <a href="#philosophy">理念</a>
+    <a href="#contact" class="cta">お問い合わせ</a>
+  </nav>
+</header>
+
+<section id="top" class="hero">
+  <div class="wrap">
+    <div class="hero-col">
+      <div class="eyebrow">STUDIO VEIN &mdash; INDEPENDENT GAME STUDIO</div>
+      <h1>深慮・邁進・尊重。</h1>
+      <p>Veinは、ふたりで作っているインディーゲーム制作チームです。Robloxを舞台に、暗くて、少しだけ意地の悪いゲームを作っています。</p>
+      <div class="btn-row">
+        <a href="#works" class="btn">UnderMinerを見る</a>
+        <a href="#team" class="btn-quiet">チームについて</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="/images/um-cover.jpg" alt="UnderMinerのカバーアート。ヘルメットをかぶった作業員がマグネーターを構え、背後から錆びたドリルが迫っている">
+      <div class="hero-tag">最新作 UNDERMINER</div>
+    </div>
+  </div>
+</section>
+
+<section id="works" class="works">
+  <div class="wrap">
+    <div class="works-head">
+      <div>
+        <div class="eyebrow">WORKS</div>
+        <h2>UnderMiner</h2>
+      </div>
+      <div class="works-meta">ジャンル: 一人称ホラー探索 ／ プラットフォーム: Roblox</div>
+    </div>
+    <img class="shot" src="/images/um-thumb.jpg" alt="UnderMinerのサムネイル。暗い坑道で、手に持ったマグネーターの先に巨大なドリル状の採掘虫が迫る">
+    <div class="works-body">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <h3>ただの忘れ物だったはずだ。</h3>
+        <p>地下採掘場で働く、ごく普通の作業員。置いてきた道具「マグネーター」を取りに戻るだけの、5分で終わるはずの寄り道。エレベーターが落ちるまでは。</p>
+      </div>
+      <div class="works-cta">
+        <div class="chapters">
+          <div class="chapter">
+            <div class="no">CHAPTER 1</div>
+            <div class="name">Dark Introduce</div>
+            <div class="status-done">完成</div>
+          </div>
+          <div class="chapter">
+            <div class="no">CHAPTER 2</div>
+            <div class="name">Descend</div>
+            <div class="status-wip">制作中</div>
+          </div>
+        </div>
+        <a class="btn-light" href="https://www.roblox.com/ja/games/117262738667984/UNDERMINER">Robloxで遊ぶ</a>
+        <a class="btn-outline-dark" href="/underminer/">Chapter 2「Descend」特設ページ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" class="roadmap">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">ROADMAP</div>
+      <h2>全5章で、地上を目指す。</h2>
+    </div>
+    <div class="road-grid">
+      <div class="road-card">
+        <div class="num">01</div>
+        <div class="name">Dark Introduce</div>
+        <div class="state">完成</div>
+      </div>
+      <div class="road-card">
+        <div class="num">02</div>
+        <div class="name">Descend</div>
+        <div class="state">制作中</div>
+      </div>
+      <div class="road-card future">
+        <div class="num">03</div>
+        <div class="name">???</div>
+        <div class="state">未公開</div>
+      </div>
+      <div class="road-card future">
+        <div class="num">04</div>
+        <div class="name">???</div>
+        <div class="state">未公開</div>
+      </div>
+      <div class="road-card future">
+        <div class="num">05</div>
+        <div class="name">???</div>
+        <div class="state">未公開</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team">
+  <div class="wrap">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div class="eyebrow">TEAM</div>
+      <h2>作っているのは、ふたり。</h2>
+      <p>企画から制作、テストまで、すべてを身内で回している小さなチームです。</p>
+    </div>
+    <div class="member">
+      <div class="role">企画・制作</div>
+      <div class="handle">@atiyaking122</div>
+      <p>ゲームデザイン、スクリプト、モデル、アートワークを担当。</p>
+    </div>
+    <div class="member">
+      <div class="role">テストプレイ</div>
+      <div class="handle">@ichigo14315</div>
+      <p>バグ探しと遊び心地のチェックを担当。</p>
+    </div>
+  </div>
+</section>
+
+<section id="philosophy" class="philosophy">
+  <div class="wrap">
+    <div class="phil-head">
+      <div class="eyebrow">PHILOSOPHY</div>
+      <h2>Veinの理念</h2>
+    </div>
+    <div class="phil-grid">
+      <div class="phil-item">
+        <div class="kanji">深慮</div>
+        <div class="en">DELIBERATION</div>
+        <p>ひとつの演出、ひとつの台詞にも理由を持たせる。遊んだ後で気づく仕掛けを大切にします。</p>
+      </div>
+      <div class="phil-item">
+        <div class="kanji">邁進</div>
+        <div class="en">ADVANCEMENT</div>
+        <p>小さなチームでも、止まらずに作り続ける。一章ずつ、確実に前へ進めます。</p>
+      </div>
+      <div class="phil-item">
+        <div class="kanji">尊重</div>
+        <div class="en">RESPECT</div>
+        <p>遊んでくれる人の時間を尊重する。怖さも驚きも、手を抜かずに届けます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div>
+      <h2>感想・バグ報告をお待ちしています。</h2>
+      <p>Robloxのグループ、またはゲームページのコメントからお気軽にどうぞ。</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn-white" href="https://www.roblox.com/share/g/517383370">Robloxグループ</a>
+      <a class="btn-ghost" href="https://www.roblox.com/ja/games/117262738667984/UNDERMINER">ゲームページ</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; Studio Vein. All rights reserved.</div>
+    <div class="whisper">ご協力に感謝します。 &mdash; Vein</div>
+  </div>
+</footer>
+
+</body>
+</html>
